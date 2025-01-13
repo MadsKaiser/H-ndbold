@@ -21,7 +21,7 @@ public class HelloController {
     private Label KampTid;
 
     @FXML
-    private ListView<?> KampUdskrift;
+    private ListView<String> KampUdskrift;
 
     @FXML
     private Label MålEt;
@@ -104,8 +104,36 @@ public class HelloController {
         }
     }
     @FXML
-    public void ongoalClickLeft(ActionEvent event) {
-        String HoldEt = HoldEt.getText();
-        KampUdskrift.setText(KampUdskrift.getText() + "\n" + HoldEt + " scorede ved " + String.format("%02d", timeElapsed) + " sekunder.");
+    public void onGoalClickLeft(ActionEvent event) {
+        String teamName = HoldEt.getText();
+
+        // Øger antallet af mål og opdaterer MålLabel
+        målCountEt++;
+        MålEt.setText(String.valueOf(målCountEt));
+
+        // Tilføjer mål til KampUdskrift
+        KampUdskrift.getItems().add(teamName + " scorede ved " + String.format("%02d", timeElapsed) + " sekunder.");
+    }
+    @FXML
+    public void onGoalClickRight(ActionEvent event) {
+        String teamName = HoldTo.getText();
+
+        // Øger antallet af mål og opdaterer MålLabel
+        målCountTo++;
+        MålTo.setText(String.valueOf(målCountTo));
+
+        // Tilføjer mål til KampUdskrift
+        KampUdskrift.getItems().add(teamName + " scorede ved " + String.format("%02d", timeElapsed) + " sekunder.");
+    }
+
+    @FXML
+    public void OnBanClickLeft(ActionEvent event) {
+        String teamName = HoldEt.getText();
+        KampUdskrift.getItems().add(teamName + " fik udvisning " + String.format("%02d", timeElapsed) + " sekunder.");
+    }
+    @FXML
+    public void OnBanClickRight(ActionEvent event) {
+        String teamName = HoldTo.getText();
+        KampUdskrift.getItems().add(teamName + " fik udvisning " + String.format("%02d", timeElapsed) + " sekunder.");
     }
     }
