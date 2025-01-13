@@ -150,7 +150,7 @@ public class HelloController {
         ObservableList<String> items = KampUdskrift.getItems();
 
         // Opret en fil, hvor vi skal gemme kampens udskrift
-        File file = new File("KampUdskrifte.txt");
+        File file = new File("KampUdskrift.txt");
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
             // Skriv kampens udskrift til filen
