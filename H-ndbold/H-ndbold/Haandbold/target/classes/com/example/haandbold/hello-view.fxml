@@ -33,10 +33,11 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <Label fx:id="KampTid" alignment="CENTER" layoutX="197.0" layoutY="34.0" prefHeight="72.0" prefWidth="206.0" text="00:00">
+      <Label fx:id="KampTid" alignment="CENTER" layoutX="197.0" layoutY="34.0" prefHeight="72.0" prefWidth="206.0" text="00">
          <font>
             <Font size="42.0" />
          </font>
       </Label>
+      <Button fx:id="StartKnap" layoutX="280.0" layoutY="101.0" mnemonicParsing="false" onAction="#OnStartClick" text="Start" />
    </children>
 </AnchorPane>
