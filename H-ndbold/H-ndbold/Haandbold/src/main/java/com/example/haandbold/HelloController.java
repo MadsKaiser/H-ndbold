@@ -38,7 +38,8 @@ public class HelloController {
     @FXML
     private Button UdvisningknapTo;
 
-    private int målCount = 0;
+    private int målCountEt = 0;
+    private int målCountTo = 0;
 
     @FXML
     void OnBanClickEt(ActionEvent event) {
@@ -53,13 +54,13 @@ public class HelloController {
     @FXML
     private void onGoalClickLeft() {
         // Øg tælleren og opdater label'en med den nye tællerværdi
-        MålEt.setText(String.valueOf(++målCount));
+        MålEt.setText(String.valueOf(++målCountEt));
     }
 
     @FXML
     private void onGoalClickRight() {
         // Øg tælleren og opdater label'en med den nye tællerværdi
-        MålTo.setText(String.valueOf(++målCount));
+        MålTo.setText(String.valueOf(++målCountTo));
     }
 
 }
