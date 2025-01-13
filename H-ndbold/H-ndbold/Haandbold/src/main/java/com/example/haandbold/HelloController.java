@@ -2,12 +2,18 @@ package com.example.haandbold;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.util.Duration;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class HelloController {
 
@@ -112,7 +118,7 @@ public class HelloController {
         MålEt.setText(String.valueOf(målCountEt));
 
         // Tilføjer mål til KampUdskrift
-        KampUdskrift.getItems().add(teamName + " scorede ved " + String.format("%02d", timeElapsed) + " sekunder.");
+        KampUdskrift.getItems().add(0, teamName + " scorede ved " + String.format("%02d", timeElapsed) + " sekunder.");
     }
     @FXML
     public void onGoalClickRight(ActionEvent event) {
@@ -123,17 +129,56 @@ public class HelloController {
         MålTo.setText(String.valueOf(målCountTo));
 
         // Tilføjer mål til KampUdskrift
-        KampUdskrift.getItems().add(teamName + " scorede ved " + String.format("%02d", timeElapsed) + " sekunder.");
+        KampUdskrift.getItems().add(0, teamName + " scorede ved " + String.format("%02d", timeElapsed) + " sekunder.");
     }
 
     @FXML
     public void OnBanClickLeft(ActionEvent event) {
         String teamName = HoldEt.getText();
-        KampUdskrift.getItems().add(teamName + " fik udvisning " + String.format("%02d", timeElapsed) + " sekunder.");
+        KampUdskrift.getItems().add(0, teamName + " fik udvisning " + String.format("%02d", timeElapsed) + " sekunder.");
     }
     @FXML
     public void OnBanClickRight(ActionEvent event) {
         String teamName = HoldTo.getText();
-        KampUdskrift.getItems().add(teamName + " fik udvisning " + String.format("%02d", timeElapsed) + " sekunder.");
+        KampUdskrift.getItems().add(0, teamName + " fik udvisning " + String.format("%02d", timeElapsed) + " sekunder.");
+    }
+
+
+    // Denne metode kan kaldes, når kampen er slut
+    public void printKampUdskrift() {
+        // Hent alle elementer fra KampUdskrift (ListView)
+        ObservableList<String> items = KampUdskrift.getItems();
+
+        // Opret en fil, hvor vi skal gemme kampens udskrift
+        File file = new File("KampUdskrifte.txt");
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
+            // Skriv kampens udskrift til filen
+            for (String item : items) {
+                writer.write(item);
+                writer.newLine();  // Tilføj en ny linje for hvert element
+            }
+            System.out.println("Kampens udskrift er gemt i filen 'KampUdskrift.txt'.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Metode til at opdatere slutresultatet
+    public void updateFinalScore() {
+        // Hent værdierne fra labels
+        String team1Score = MålEt.getText();  // Score for hold 1
+        String team2Score = MålTo.getText(); // Score for hold 2
+
+        // Opret slutresultat teksten
+        String finalScore = "Slutstilling: " + team1Score + " - " + team2Score;
+
+        // Tilføj slutresultatet øverst i KampUdskrift
+        KampUdskrift.getItems().add(0, finalScore);
+    }
+
+    @FXML
+    private void OnAfslutKamp(ActionEvent event) {
+        updateFinalScore();  // Opdater listen med den endelige stilling
     }
     }
