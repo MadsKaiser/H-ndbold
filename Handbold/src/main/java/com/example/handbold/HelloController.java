@@ -5,9 +5,13 @@ import javafx.animation.Timeline;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.BufferedWriter;
@@ -49,6 +53,9 @@ public class HelloController {
 
     @FXML
     private Button StartKnap;
+
+    @FXML
+    private Button LigaStillingKnap;
 
     private int målCountEt = 0;
     private int målCountTo = 0;
@@ -150,7 +157,7 @@ public class HelloController {
         ObservableList<String> items = KampUdskrift.getItems();
 
         // Opret en fil, hvor vi skal gemme kampens udskrift
-        File file = new File("KampUdskrifte.txt");
+        File file = new File("KampUdskrift.txt");
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
             // Skriv kampens udskrift til filen
@@ -179,6 +186,27 @@ public class HelloController {
 
     @FXML
     private void OnAfslutKamp(ActionEvent event) {
-        updateFinalScore();  // Opdater listen med den endelige stilling
+        updateFinalScore();
     }
-}
+
+    @FXML
+    private void OnLigaClick() {
+        try {
+            // Lukker nuværende vindue
+            Stage currentStage = (Stage) LigaStillingKnap.getScene().getWindow();
+            currentStage.close();
+
+            // Loader Second-view.fxml
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Second-view.fxml"));
+            Parent root = loader.load();
+
+            // Opretter et nyt stage og viser det
+            Stage secondStage = new Stage();
+            secondStage.setTitle("Liga");
+            secondStage.setScene(new Scene(root));
+            secondStage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    }
