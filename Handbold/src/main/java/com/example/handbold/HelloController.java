@@ -22,6 +22,9 @@ import java.io.IOException;
 public class HelloController {
 
     @FXML
+    private Button AfslutKamp;
+
+    @FXML
     private Label HoldEt;
 
     @FXML
@@ -56,6 +59,7 @@ public class HelloController {
 
     @FXML
     private Button LigaStillingKnap;
+
 
     private int målCountEt = 0;
     private int målCountTo = 0;
@@ -151,13 +155,14 @@ public class HelloController {
     }
 
 
+    @FXML
     // Denne metode kan kaldes, når kampen er slut
-    public void printKampUdskrift() {
+    public void OnAfslutKamp(ActionEvent event) {
         // Hent alle elementer fra KampUdskrift (ListView)
         ObservableList<String> items = KampUdskrift.getItems();
 
         // Opret en fil, hvor vi skal gemme kampens udskrift
-        File file = new File("KampUdskrift.txt");
+        File file = new File("C:\\Users\\MadsRinggaardKaiser\\Desktop\\H-ndbold-main\\Handbold\\src\\main\\java\\com\\example\\handbold\\KampUdskrift.txt");
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
             // Skriv kampens udskrift til filen
@@ -184,10 +189,10 @@ public class HelloController {
         KampUdskrift.getItems().add(0, finalScore);
     }
 
-    @FXML
-    private void OnAfslutKamp(ActionEvent event) {
-        updateFinalScore();
-    }
+//    @FXML
+//    private void OnAfslutKamp(ActionEvent event) {
+//        updateFinalScore();
+//    }
 
     @FXML
     private void OnLigaClick() {
