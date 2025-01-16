@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.handbold.LigaStillingController">
+   <children>
+      <Label alignment="CENTER" layoutX="156.0" layoutY="22.0" prefHeight="46.0" prefWidth="287.0" text="Håndbold Ligaen">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Label>
+      <TableView fx:id="Liga" layoutX="7.0" layoutY="76.0" prefHeight="314.0" prefWidth="583.0">
+        <columns>
+          <TableColumn fx:id="Placering" prefWidth="54.64614820480347" text="C1" />
+          <TableColumn fx:id="Holdnavn" prefWidth="422.4000473022461" text="C2" />
+            <TableColumn fx:id="Point" prefWidth="106.33843994140625" text="C3" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
