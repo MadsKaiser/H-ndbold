@@ -5,7 +5,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.handbold.MenuController">
    <children>
       <Button fx:id="OpretKampKnap" alignment="CENTER" layoutX="232.0" layoutY="135.0" mnemonicParsing="false" onAction="#OnOpretKampClick" text="Opret Kamp">
@@ -13,7 +12,7 @@
             <Font size="20.0" />
          </font>
       </Button>
-      <Button fx:id="LigaStillingKnap" alignment="CENTER" layoutX="239.0" layoutY="241.0" mnemonicParsing="false" onAction="#OnLigaStillingClick" text="Ligastilling">
+      <Button fx:id="LigaStillingKnap" alignment="CENTER" layoutX="239.0" layoutY="212.0" mnemonicParsing="false" onAction="#OnLigaStillingClick" text="Ligastilling">
          <font>
             <Font size="20.0" />
          </font>
@@ -23,5 +22,10 @@
             <Font size="49.0" />
          </font>
       </Label>
+      <Button fx:id="OpretHoldKnap" layoutX="236.0" layoutY="290.0" mnemonicParsing="false" onAction="#OnOpretHoldKnapClick" text="Opret Hold">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

@@ -23,40 +23,32 @@ public class KampController {
 
     @FXML
     private Button AfslutKamp;
-
+    @FXML
+    private Button OpretKampKnap;
+    @FXML
+    private Button MenuKnap;
     @FXML
     private Label HoldEt;
-
     @FXML
     private Label HoldTo;
-
     @FXML
     private Label KampTid;
-
     @FXML
     private ListView<String> KampUdskrift;
-
     @FXML
     private Label MålEt;
-
     @FXML
     private Button MålKnapEt;
-
     @FXML
     private Button MålKnapTo;
-
     @FXML
     private Label MålTo;
-
     @FXML
     private Button UdvisningKnapEt;
-
     @FXML
     private Button UdvisningknapTo;
-
     @FXML
     private Button StartKnap;
-
     @FXML
     private Button LigaStillingKnap;
 
@@ -67,16 +59,6 @@ public class KampController {
     private Timeline timeline;
     private int timeElapsed = 0;
     private boolean running = false;
-
-    @FXML
-    void OnBanClickEt(ActionEvent event) {
-
-    }
-
-    @FXML
-    void OnBanClickTo(ActionEvent event) {
-
-    }
 
     @FXML
     private void onGoalClickLeft() {
@@ -93,18 +75,14 @@ public class KampController {
     @FXML
     public void OnStartClick(ActionEvent event) {
         if (running) {
-            // Stopper timeren og nulstiller
+            // Pause timeren
             timeline.stop();
-            timeElapsed = 0;
-            KampTid.setText("00");
             StartKnap.setText("Start");
             running = false;
         } else {
-            // Starter timeren
-            timeElapsed = 0;
-            KampTid.setText("00");
+            // Fortsæt timeren fra der hvor den var
             running = true;
-            StartKnap.setText("Stop");
+            StartKnap.setText("Pause");
 
             timeline = new Timeline(new KeyFrame(Duration.seconds(1), e -> {
                 timeElapsed++;
@@ -116,7 +94,8 @@ public class KampController {
                 }
             }));
 
-            timeline.setCycleCount(30);
+            // Sætter antallet af cyklusser til de resterende sekunder
+            timeline.setCycleCount(30 - timeElapsed);
             timeline.play();
         }
     }
@@ -193,10 +172,6 @@ public class KampController {
         KampUdskrift.getItems().add(0, finalScore);
     }
 
-//    @FXML
-//    private void OnAfslutKamp(ActionEvent event) {
-//        updateFinalScore();
-//    }
 
     @FXML
     private void OnLigaClick() {
@@ -212,6 +187,46 @@ public class KampController {
             // Opretter et nyt stage og viser det
             Stage secondStage = new Stage();
             secondStage.setTitle("Liga");
+            secondStage.setScene(new Scene(root));
+            secondStage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    private void OnMenuKnapClick(ActionEvent event) {
+        try {
+            // Lukker nuværende vindue
+            Stage currentStage = (Stage) MenuKnap.getScene().getWindow();
+            currentStage.close();
+
+            // Loader Kamp.fxml
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Menu.fxml"));
+            Parent root = loader.load();
+
+            // Opretter et nyt stage og viser det
+            Stage secondStage = new Stage();
+            secondStage.setTitle("Menu");
+            secondStage.setScene(new Scene(root));
+            secondStage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    private void OnOpretKampClick(ActionEvent event) {
+        try {
+            // Lukker nuværende vindue
+            Stage currentStage = (Stage) OpretKampKnap.getScene().getWindow();
+            currentStage.close();
+
+            // Loader Kamp.fxml
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("LaveKamp.fxml"));
+            Parent root = loader.load();
+
+            // Opretter et nyt stage og viser det
+            Stage secondStage = new Stage();
+            secondStage.setTitle("LaveKamp");
             secondStage.setScene(new Scene(root));
             secondStage.show();
         } catch (Exception e) {

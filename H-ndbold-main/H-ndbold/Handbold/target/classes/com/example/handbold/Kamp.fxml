@@ -40,6 +40,8 @@
         </Label>
         <Button fx:id="StartKnap" layoutX="280.0" layoutY="101.0" mnemonicParsing="false" onAction="#OnStartClick" text="Start" />
         <Button fx:id="AfslutKamp" layoutX="234.0" layoutY="351.0" mnemonicParsing="false" onAction="#OnAfslutKamp" prefHeight="26.0" prefWidth="131.0" text="Gem Kampudskrift" />
-      <Button fx:id="LigaStillingKnap" layoutX="515.0" layoutY="364.0" mnemonicParsing="false" onAction="#OnLigaClick" text="Liga stilling" />
+      <Button fx:id="LigaStillingKnap" layoutX="515.0" layoutY="364.0" mnemonicParsing="false" onAction="#OnLigaClick" text="Ligastilling" />
+      <Button fx:id="OpretKampKnap" layoutX="13.0" layoutY="364.0" mnemonicParsing="false" onAction="#OnOpretKampClick" text="Opret Kamp" />
+      <Button fx:id="MenuKnap" layoutX="13.0" layoutY="14.0" mnemonicParsing="false" onAction="#OnMenuKnapClick" text="Menu" />
     </children>
 </AnchorPane>

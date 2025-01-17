@@ -17,6 +17,9 @@ public class MenuController {
     private Button LigaStillingKnap;
 
     @FXML
+    private Button OpretHoldKnap;
+
+    @FXML
     private Label MenuLabel;
 
     @FXML
@@ -44,7 +47,43 @@ public class MenuController {
     }
 
     @FXML
-    void OnOpretKampClick(ActionEvent event) {
+    private void OnOpretKampClick(ActionEvent event) {
+        try {
+            // Lukker nuværende vindue
+            Stage currentStage = (Stage) OpretKampKnap.getScene().getWindow();
+            currentStage.close();
 
+            // Loader Kamp.fxml
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("LaveKamp.fxml"));
+            Parent root = loader.load();
+
+            // Opretter et nyt stage og viser det
+            Stage secondStage = new Stage();
+            secondStage.setTitle("LaveKamp");
+            secondStage.setScene(new Scene(root));
+            secondStage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    private void OnOpretHoldKnapClick(ActionEvent event) {
+        try {
+            // Lukker nuværende vindue
+            Stage currentStage = (Stage) OpretHoldKnap.getScene().getWindow();
+            currentStage.close();
+
+            // Loader Kamp.fxml
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("OpretteHold.fxml"));
+            Parent root = loader.load();
+
+            // Opretter et nyt stage og viser det
+            Stage secondStage = new Stage();
+            secondStage.setTitle("OpretHold");
+            secondStage.setScene(new Scene(root));
+            secondStage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
