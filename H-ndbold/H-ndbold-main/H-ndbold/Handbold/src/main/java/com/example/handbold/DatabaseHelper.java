@@ -13,7 +13,7 @@ import javafx.collections.ObservableList;
 public class DatabaseHelper {
     public static ObservableList<Hold> getTeams() {
         ObservableList<Hold> teams = FXCollections.observableArrayList();
-        String query = "SELECT * FROM Hold";
+        String query = "SELECT * FROM hold";
 
         try (Connection connection = DatabaseConnection.getConnection();
              Statement statement = connection.createStatement();
@@ -33,14 +33,14 @@ public class DatabaseHelper {
     }
     public static List<String> getHoldNavne() {
         List<String> holdNavne = new ArrayList<>();
-        String query = "SELECT name FROM Hold";
+        String query = "SELECT navn FROM Hold";
 
         try (Connection connection = DatabaseConnection.getConnection();
              Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery(query)) {
 
             while (resultSet.next()) {
-                String name = resultSet.getString("name");
+                String name = resultSet.getString("navn");
                 holdNavne.add(name);
             }
         } catch (SQLException e) {

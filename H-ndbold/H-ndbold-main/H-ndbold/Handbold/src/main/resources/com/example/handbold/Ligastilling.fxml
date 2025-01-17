@@ -22,5 +22,6 @@
         </columns>
       </TableView>
       <Button fx:id="MenuKnap" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#OnMenuKnapClick" text="Menu" />
+      <Button fx:id="PrintKnap" layoutX="545.0" layoutY="9.0" mnemonicParsing="false" onAction="#OnPrintKnapClick" text="Print" />
    </children>
 </AnchorPane>

@@ -75,18 +75,14 @@ public class KampController {
     @FXML
     public void OnStartClick(ActionEvent event) {
         if (running) {
-            // Stopper timeren og nulstiller
+            // Pause timeren
             timeline.stop();
-            timeElapsed = 0;
-            KampTid.setText("00");
             StartKnap.setText("Start");
             running = false;
         } else {
-            // Starter timeren
-            timeElapsed = 0;
-            KampTid.setText("00");
+            // Fortsæt timeren fra der hvor den var
             running = true;
-            StartKnap.setText("Stop");
+            StartKnap.setText("Pause");
 
             timeline = new Timeline(new KeyFrame(Duration.seconds(1), e -> {
                 timeElapsed++;
@@ -98,7 +94,8 @@ public class KampController {
                 }
             }));
 
-            timeline.setCycleCount(30);
+            // Sætter antallet af cyklusser til de resterende sekunder
+            timeline.setCycleCount(30 - timeElapsed);
             timeline.play();
         }
     }

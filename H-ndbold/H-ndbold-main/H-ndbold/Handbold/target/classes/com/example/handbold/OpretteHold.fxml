@@ -8,6 +8,6 @@
    <children>
       <TextField fx:id="nameField" alignment="CENTER" layoutX="29.0" layoutY="62.0" onAction="#OnIndtastHoldClick" promptText="Indtast Holdnavn" />
       <Button fx:id="MenuKnap" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#OnMenuKnapClick" text="Menu" />
-      <Button fx:id="OpretHoldKnap" layoutX="54.0" layoutY="100.0" mnemonicParsing="false" onAction="#OnOpretHoldKnapClick" text="OpretHoldKnap" />
+      <Button fx:id="OpretHoldKnap" layoutX="66.0" layoutY="100.0" mnemonicParsing="false" onAction="#OnOpretHoldKnapClick" text="Opret Hold" />
    </children>
 </AnchorPane>
