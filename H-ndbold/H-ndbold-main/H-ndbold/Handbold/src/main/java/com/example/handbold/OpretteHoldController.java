@@ -70,29 +70,39 @@ public class OpretteHoldController {
     public void OnOpretHoldKnapClick(ActionEvent event) {
         String teamName = nameField.getText();
 
+        // Validate that the input is not blank
         if (teamName.isBlank()) {
             showAlert("Fejl", "Holdnavn kan ikke være tomt!");
             return;
         }
 
-        try (Connection conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;database=hbold");
-             PreparedStatement pstmt = conn.prepareStatement("INSERT INTO hold (hold_navn) VALUES (?)")) {
+        // Database operation
+        try (Connection conn = DriverManager.getConnection(
+                "jdbc:sqlserver://localhost:1433;databaseName=hbold;user=Morten;password=Morten;encrypt=true;trustServerCertificate=true");
+             PreparedStatement pstmt = conn.prepareStatement(
+                     "INSERT INTO Ligastilling (navn) VALUES (?)")) {
 
+            // Set parameter for prepared statement
             pstmt.setString(1, teamName);
+
+            // Execute the update and check rows affected
             int rowsInserted = pstmt.executeUpdate();
 
             if (rowsInserted > 0) {
                 showAlert("Succes", "Holdet blev oprettet!");
                 nameField.clear();
+                System.out.println("Holdet " + teamName + " blev oprettet!");
             } else {
                 showAlert("Fejl", "Holdet kunne ikke oprettes.");
             }
 
         } catch (SQLException e) {
+            // Improved error handling with detailed message
             e.printStackTrace();
-            showAlert("Database Fejl", "Kunne ikke oprette forbindelse til databasen.");
+            showAlert("Database Fejl", "Kunne ikke oprette forbindelse til databasen: " + e.getMessage());
         }
     }
+
 
     private void showAlert(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
