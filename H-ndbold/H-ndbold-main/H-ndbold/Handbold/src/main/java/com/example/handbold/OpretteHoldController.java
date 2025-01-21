@@ -78,7 +78,7 @@ public class OpretteHoldController {
 
         // Database operation
         try (Connection conn = DriverManager.getConnection(
-                "jdbc:sqlserver://localhost:1433;databaseName=hbold;user=Morten;password=Morten;encrypt=true;trustServerCertificate=true");
+                "jdbc:sqlserver://localhost:1433;databaseName=hbold;user=Mads;password=Hestfisk100;encrypt=true;trustServerCertificate=true");
              PreparedStatement pstmt = conn.prepareStatement(
                      "INSERT INTO Ligastilling (navn) VALUES (?)")) {
 

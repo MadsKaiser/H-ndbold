@@ -10,16 +10,19 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Menu.fxml"));
-        Parent root = fxmlLoader.load();
-
+        // Loader Menu.fxml
+        FXMLLoader menuLoader = new FXMLLoader(getClass().getResource("Menu.fxml"));
+        Parent menuRoot = menuLoader.load();
         primaryStage.setTitle("Menu");
-        primaryStage.setScene(new Scene(root));
+        primaryStage.setScene(new Scene(menuRoot));
         primaryStage.show();
     }
 
     public static void main(String[] args) throws Exception {
+        // Opretter databaseforbindelse
         DatabaseConnection.getConnection();
+
+        // Starter applikationen
         launch(args);
     }
 }

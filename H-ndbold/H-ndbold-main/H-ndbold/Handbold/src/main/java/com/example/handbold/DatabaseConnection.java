@@ -8,7 +8,7 @@ public class DatabaseConnection {
     public static Connection getConnection() {
         // Defining the connection string
         String connectionString =
-                "jdbc:sqlserver://localhost:1433;databaseName=Hbold;user=Morten;password=Morten;encrypt=true;trustServerCertificate=true";
+                "jdbc:sqlserver://localhost:1433;databaseName=Hbold;user=Mads;password=Hestfisk100;encrypt=true;trustServerCertificate=true";
 
         Connection conn = null;
 

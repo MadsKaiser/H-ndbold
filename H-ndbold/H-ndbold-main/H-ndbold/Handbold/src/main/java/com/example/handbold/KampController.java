@@ -52,7 +52,6 @@ public class KampController {
     @FXML
     private Button LigaStillingKnap;
 
-
     private int målCountEt = 0;
     private int målCountTo = 0;
 
@@ -80,7 +79,7 @@ public class KampController {
             StartKnap.setText("Start");
             running = false;
         } else {
-            // Fortsæt timeren fra der hvor den var
+            // Start timeren
             running = true;
             StartKnap.setText("Pause");
 
@@ -99,25 +98,23 @@ public class KampController {
             timeline.play();
         }
     }
+
     @FXML
     public void onGoalClickLeft(ActionEvent event) {
         String teamName = HoldEt.getText();
-
         // Øger antallet af mål og opdaterer MålLabel
         målCountEt++;
         MålEt.setText(String.valueOf(målCountEt));
-
         // Tilføjer mål til KampUdskrift
         KampUdskrift.getItems().add(0, teamName + " scorede ved " + String.format("%02d", timeElapsed) + " sekunder.");
     }
+
     @FXML
     public void onGoalClickRight(ActionEvent event) {
         String teamName = HoldTo.getText();
-
         // Øger antallet af mål og opdaterer MålLabel
         målCountTo++;
         MålTo.setText(String.valueOf(målCountTo));
-
         // Tilføjer mål til KampUdskrift
         KampUdskrift.getItems().add(0, teamName + " scorede ved " + String.format("%02d", timeElapsed) + " sekunder.");
     }
@@ -127,21 +124,21 @@ public class KampController {
         String teamName = HoldEt.getText();
         KampUdskrift.getItems().add(0, teamName + " fik udvisning " + String.format("%02d", timeElapsed) + " sekunder.");
     }
+
     @FXML
     public void OnBanClickRight(ActionEvent event) {
         String teamName = HoldTo.getText();
         KampUdskrift.getItems().add(0, teamName + " fik udvisning " + String.format("%02d", timeElapsed) + " sekunder.");
     }
 
-
     @FXML
-    // Denne metode kan kaldes, når kampen er slut
     public void OnAfslutKamp(ActionEvent event) {
         funktion1();
         funktion2();
     }
+
     public void funktion2() {
-    // Hent alle elementer fra KampUdskrift (ListView)
+        // Hent alle elementer fra KampUdskrift (ListView)
         ObservableList<String> items = KampUdskrift.getItems();
 
         // Opret en fil, hvor vi skal gemme kampens udskrift
@@ -159,7 +156,6 @@ public class KampController {
         }
     }
 
-    // Metode til at opdatere slutresultatet
     public void funktion1() {
         // Hent værdierne fra labels
         String team1Score = MålEt.getText();  // Score for hold 1
@@ -171,7 +167,6 @@ public class KampController {
         // Tilføj slutresultatet øverst i KampUdskrift
         KampUdskrift.getItems().add(0, finalScore);
     }
-
 
     @FXML
     private void OnLigaClick() {
@@ -193,6 +188,7 @@ public class KampController {
             e.printStackTrace();
         }
     }
+
     @FXML
     private void OnMenuKnapClick(ActionEvent event) {
         try {
@@ -213,6 +209,7 @@ public class KampController {
             e.printStackTrace();
         }
     }
+
     @FXML
     private void OnOpretKampClick(ActionEvent event) {
         try {
@@ -233,4 +230,18 @@ public class KampController {
             e.printStackTrace();
         }
     }
+
+    // Metode til at opdatere HoldEt label
+    public void updateHomeTeamLabel(String homeTeam) {
+        if (homeTeam != null) {
+            HoldEt.setText(homeTeam);  // Opdater HoldEt label med hjemmeholdets navn
+        }
     }
+
+    // Metode til at opdatere HoldTo label
+    public void updateAwayTeamLabel(String awayTeam) {
+        if (awayTeam != null) {
+            HoldTo.setText(awayTeam);  // Opdater HoldTo label med udeholdets navn
+        }
+    }
+}
