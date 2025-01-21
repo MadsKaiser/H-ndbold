@@ -1,19 +1,20 @@
 <component name="libraryTable">
   <library name="adaptive">
     <CLASSES>
-      <root url="jar://$USER_HOME$/Desktop/sqljdbc_12.8/enu/jars/mssql-jdbc-12.8.1.jre11.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../../sqljdbc_12.8/enu/jars/mssql-jdbc-12.8.1.jre11.jar!/" />
+      <root url="jar://$USER_HOME$/Documents/SQL Server Management Studio/SQL FLEMMING/sqljdbc_12.8.1.0_enu/sqljdbc_12.8/enu/jars/mssql-jdbc-12.8.1.jre11.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="file://$USER_HOME$/Desktop/sqljdbc_12.8/enu/samples/adaptive" />
-      <root url="file://$USER_HOME$/Desktop/sqljdbc_12.8/enu/samples/alwaysencrypted" />
-      <root url="file://$USER_HOME$/Desktop/sqljdbc_12.8/enu/samples/azureactivedirectoryauthentication" />
-      <root url="file://$USER_HOME$/Desktop/sqljdbc_12.8/enu/samples/connections" />
-      <root url="file://$USER_HOME$/Desktop/sqljdbc_12.8/enu/samples/constrained" />
-      <root url="file://$USER_HOME$/Desktop/sqljdbc_12.8/enu/samples/dataclassification" />
-      <root url="file://$USER_HOME$/Desktop/sqljdbc_12.8/enu/samples/datatypes" />
-      <root url="file://$USER_HOME$/Desktop/sqljdbc_12.8/enu/samples/resultsets" />
-      <root url="file://$USER_HOME$/Desktop/sqljdbc_12.8/enu/samples/sparse" />
+      <root url="file://$PROJECT_DIR$/../../../../sqljdbc_12.8/enu/samples/adaptive" />
+      <root url="file://$PROJECT_DIR$/../../../../sqljdbc_12.8/enu/samples/alwaysencrypted" />
+      <root url="file://$PROJECT_DIR$/../../../../sqljdbc_12.8/enu/samples/azureactivedirectoryauthentication" />
+      <root url="file://$PROJECT_DIR$/../../../../sqljdbc_12.8/enu/samples/connections" />
+      <root url="file://$PROJECT_DIR$/../../../../sqljdbc_12.8/enu/samples/constrained" />
+      <root url="file://$PROJECT_DIR$/../../../../sqljdbc_12.8/enu/samples/dataclassification" />
+      <root url="file://$PROJECT_DIR$/../../../../sqljdbc_12.8/enu/samples/datatypes" />
+      <root url="file://$PROJECT_DIR$/../../../../sqljdbc_12.8/enu/samples/resultsets" />
+      <root url="file://$PROJECT_DIR$/../../../../sqljdbc_12.8/enu/samples/sparse" />
     </SOURCES>
   </library>
 </component>

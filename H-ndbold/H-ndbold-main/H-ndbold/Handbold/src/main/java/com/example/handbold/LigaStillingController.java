@@ -1,5 +1,6 @@
 package com.example.handbold;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.BufferedWriter;
@@ -19,14 +21,32 @@ import java.io.IOException;
 public class LigaStillingController {
 
     @FXML
-    private TableView<String> ligaStillingTable;
+    private TableView<Hold> ligaStillingTable;
+
+    @FXML
+    private TableColumn<Hold, String> Holdnavn;
+
+    @FXML
+    private TableColumn<Hold, String> Placering;
+
+    @FXML
+    private TableColumn<Hold, String> Point;
     @FXML
     private Button PrintKnap;
     @FXML
     private Button MenuKnap;
 
     @FXML
-    private TableColumn<String, String> holdnavn;
+    public void initialize() {
+        // Hent alle hold fra databasen
+        ObservableList<Hold> teams = DatabaseHelper.getTeams();
+        Holdnavn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        Placering.setCellValueFactory(new PropertyValueFactory<>("position"));
+        Point.setCellValueFactory(new PropertyValueFactory<>("points"));
+
+        // Tilføj holdene til TableView
+        ligaStillingTable.setItems(teams);
+    }
 
     @FXML
     private void OnMenuKnapClick(ActionEvent event) {
@@ -50,7 +70,12 @@ public class LigaStillingController {
     }
     public void OnPrintKnapClick() {
         // Hent alle elementer fra Liga (TableView)
-        ObservableList<String> items = ligaStillingTable.getItems();
+        ObservableList<Hold> teams = ligaStillingTable.getItems();
+        ObservableList<String> items = FXCollections.observableArrayList();
+        for (Hold team : teams) {
+            items.add(team.toString());
+        }
+
 
         // Opret en fil, hvor vi skal gemme Ligaens udskrift
         File file = new File("LigaStilling.txt");
@@ -67,4 +92,4 @@ public class LigaStillingController {
         }
 
     }
-    }
+}

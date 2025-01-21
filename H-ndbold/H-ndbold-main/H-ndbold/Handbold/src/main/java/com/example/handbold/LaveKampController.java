@@ -37,8 +37,8 @@ public class LaveKampController {
 
     // Database oplysninger (tilpas disse efter din database)
     private final String URL = "jdbc:sqlserver://localhost:1433;databaseName=hbold;encrypt=true;trustServerCertificate=true";
-    private final String USER = "Mads";
-    private final String PASSWORD = "Hestfisk100";
+    private final String USER = "Morten";
+    private final String PASSWORD = "Morten";
 
     @FXML
     public void initialize() {

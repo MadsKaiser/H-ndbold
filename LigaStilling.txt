@@ -1,0 +1,12 @@
+0, Bording Bulls, 0
+0, Herning Hawks, 0
+0, Ikast Invaders, 0
+0, Aalborg Avengers, 0
+0, Sunds Spartans, 0
+0, Isenvad Icemen, 0
+0, Odense Olympians, 0
+0, Mors Mavericks, 0
+0, 123, 0
+0, Hold1, 0
+0, Hold 2, 0
+0, ml , 0

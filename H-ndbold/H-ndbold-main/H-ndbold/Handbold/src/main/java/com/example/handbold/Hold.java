@@ -1,9 +1,9 @@
 package com.example.handbold;
 
 public class Hold {
-    private final String name;
-    private final int points;
-    private final int position;
+    private String name;
+    private int points;
+    private int position;
 
     public Hold(String name, int points, int position) {
         this.name = name;
@@ -21,5 +21,10 @@ public class Hold {
 
     public int getPosition() {
         return position;
+    }
+
+    @Override
+    public String toString() {
+        return position + ", " + name + ", " + points;
     }
 }
