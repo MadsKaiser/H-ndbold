@@ -6,7 +6,7 @@
 0, Isenvad Icemen, 0
 0, Odense Olympians, 0
 0, Mors Mavericks, 0
-0, 123, 0
-0, Hold1, 0
-0, Hold 2, 0
-0, ml , 0
+0, Sunds Soldiers, 0
+0, Benjamonster Bøller, 0
+0, asdf, 0
+0, Benjamosers Baddies, 0

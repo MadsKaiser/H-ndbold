@@ -52,6 +52,8 @@ public class KampController {
     @FXML
     private Button LigaStillingKnap;
 
+
+
     private int målCountEt = 0;
     private int målCountTo = 0;
 
@@ -135,6 +137,14 @@ public class KampController {
     public void OnAfslutKamp(ActionEvent event) {
         funktion1();
         funktion2();
+
+        // Calculate new points (example logic, adjust as needed)
+        int pointsTeam1 = målCountEt > målCountTo ? 2 : (målCountEt == målCountTo ? 1 : 0);
+        int pointsTeam2 = målCountTo > målCountEt ? 2 : (målCountEt == målCountTo ? 1 : 0);
+
+        // Update points in the database
+        DatabaseHelper.updateTeamPoints(HoldEt.getText(), pointsTeam1);
+        DatabaseHelper.updateTeamPoints(HoldTo.getText(), pointsTeam2);
     }
 
     public void funktion2() {
